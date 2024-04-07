@@ -15,13 +15,13 @@ namespace ApiRequsetFromWindowsApplication
 
         public static readonly string baseURL = "https://reqres.in/api";
 
+        private static readonly HttpClient _httpClient = new HttpClient();
+
 
         // [GET] get all users
         public static async Task<string> GetUsersAsync()
         {
-            var client = new HttpClient();
-
-            var response = await client.GetAsync(baseURL + "/users");
+            var response = await _httpClient.GetAsync(baseURL + "/users");
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 var result = await response.Content.ReadAsStringAsync();
@@ -37,9 +37,7 @@ namespace ApiRequsetFromWindowsApplication
         // [GET] find user by Id
         public static async Task<string> GetUserByIdAsync(string id)
         {
-            var client = new HttpClient();
-
-            var response = await client.GetAsync(baseURL + "/users/" + id);
+            var response = await _httpClient.GetAsync(baseURL + "/users/" + id);
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 var result = await response.Content.ReadAsStringAsync();
@@ -56,8 +54,6 @@ namespace ApiRequsetFromWindowsApplication
         // [POST] create a user
         public static async Task<string> CreateUserAsync(string name, string job)
         {
-            var client = new HttpClient();
-
             var inputData = new Dictionary<string, string>
             {
                 { "name", name },
@@ -66,7 +62,7 @@ namespace ApiRequsetFromWindowsApplication
 
             var body = new FormUrlEncodedContent(inputData);
 
-            var response = await client.PostAsync(baseURL + "/users", body);
+            var response = await _httpClient.PostAsync(baseURL + "/users", body);
             if (response.StatusCode == HttpStatusCode.Created)
             {
                 var result = await response.Content.ReadAsStringAsync();

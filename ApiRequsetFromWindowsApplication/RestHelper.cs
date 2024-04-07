@@ -28,6 +28,9 @@ namespace ApiRequsetFromWindowsApplication
                 var result = await response.Content.ReadAsStringAsync();
                 if (result != null)
                 {
+                    //Convert the raw data (next line requires 'using Newton.Json'
+                    //result = JsonConvert.DeserializeObject<EmpConnection.Rootobject>(rawResponse);
+
                     return result;
                 }
             }

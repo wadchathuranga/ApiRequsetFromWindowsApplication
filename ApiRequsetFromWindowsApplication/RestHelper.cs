@@ -16,7 +16,7 @@ namespace ApiRequsetFromWindowsApplication
         public static readonly string baseURL = "https://reqres.in/api";
 
 
-        // GET all
+        // [GET] get all users
         public static async Task<string> GetUsersAsync()
         {
             var client = new HttpClient();
@@ -34,7 +34,7 @@ namespace ApiRequsetFromWindowsApplication
             return string.Empty;
         }
 
-        // GET by Id
+        // [GET] find user by Id
         public static async Task<string> GetUserByIdAsync(string id)
         {
             var client = new HttpClient();
@@ -53,7 +53,7 @@ namespace ApiRequsetFromWindowsApplication
             return string.Empty;
         }
 
-        // POST 
+        // [POST] create a user
         public static async Task<string> CreateUserAsync(string name, string job)
         {
             var client = new HttpClient();
@@ -79,10 +79,10 @@ namespace ApiRequsetFromWindowsApplication
             return string.Empty;
         }
 
-        // PUT by Id
+        // [PUT] update user by Id
 
 
-        // DELETE by Id
+        // [DELETE] delete user by Id
 
 
         // Common methods

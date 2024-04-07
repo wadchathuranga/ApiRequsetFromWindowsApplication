@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,22 +13,22 @@ namespace ApiRequsetFromWindowsApplication
 
         public static readonly string baseURL = "https://reqres.in/api/";
 
-        public static async Task<String> GetAsync()
+        public static async Task<string> GetAsync()
         {
-            using(HttpClient client = new HttpClient())
+            var client = new HttpClient();
+
+            var response = await client.GetAsync(baseURL + "users");
+            if (response.StatusCode == HttpStatusCode.OK)
             {
-                using(HttpResponseMessage res = await client.GetAsync(baseURL + "users"))
+                var result = await response.Content.ReadAsStringAsync();
+                if (result != null)
                 {
-                    using(HttpContent content = res.Content)
-                    {
-                        string data = await content.ReadAsStringAsync();
-                        if (data != null)
-                        {
-                            return data;
-                        }
-                    }
+                    //new JsonSerializer().Deserialize<dynamic>(result);
+                    return result;
                 }
+
             }
+
             return string.Empty;
         }
     }

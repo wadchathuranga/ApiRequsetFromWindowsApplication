@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ApiRequsetFromWindowsApplication
 {
@@ -76,10 +77,40 @@ namespace ApiRequsetFromWindowsApplication
         }
 
         // [PUT] update user by Id
+        public static async Task<string> UpdateUserAsync(string id, string name, string job)
+        {
+            var inputData = new Dictionary<string, string>
+            {
+                { "name", name },
+                { "job", job }
+            };
 
+            var body = new FormUrlEncodedContent(inputData);
+
+            var response = await _httpClient.PutAsync(baseURL + "/users/" + id, body);
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var result = await response.Content.ReadAsStringAsync();
+                if (result != null)
+                {
+                    return result;
+                }
+            }
+
+            return string.Empty;
+        }
 
         // [DELETE] delete user by Id
+        public static async Task<string> DeleteUserByIdAsync(string id)
+        {
+            var response = await _httpClient.DeleteAsync(baseURL + "/users/" + id);
+            if (response.StatusCode == HttpStatusCode.NoContent)
+            {
+                return "User delete successfull.";
+            }
 
+            return string.Empty;
+        }
 
         // Common methods
         #region

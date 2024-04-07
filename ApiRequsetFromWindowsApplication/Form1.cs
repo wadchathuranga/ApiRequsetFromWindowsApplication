@@ -34,5 +34,17 @@ namespace ApiRequsetFromWindowsApplication
             var response = await RestHelper.CreateUserAsync(txtName.Text, txtJob.Text);
             txtResponse.Text = RestHelper.BeautifyJson(response.ToString());
         }
+
+        private async void btnPut_Click(object sender, EventArgs e)
+        {
+            var response = await RestHelper.UpdateUserAsync(txtById.Text, txtName.Text, txtJob.Text);
+            txtResponse.Text = RestHelper.BeautifyJson(response.ToString());
+        }
+
+        private async void btnDelete_Click(object sender, EventArgs e)
+        {
+            var response = await RestHelper.DeleteUserByIdAsync(txtById.Text);
+            txtResponse.Text = response.ToString();
+        }
     }
 }

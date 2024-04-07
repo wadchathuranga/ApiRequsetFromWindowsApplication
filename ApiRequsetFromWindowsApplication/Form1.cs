@@ -19,8 +19,20 @@ namespace ApiRequsetFromWindowsApplication
 
         private async void btnGetAll_Click(object sender, EventArgs e)
         {
-            var response = await RestHelper.GetAsync();
-            txtResponse.Text = response.ToString();
+            var response = await RestHelper.GetUsersAsync();
+            txtResponse.Text = RestHelper.BeautifyJson(response.ToString());
+        }
+
+        private async void btnGetById_Click(object sender, EventArgs e)
+        {
+            var response = await RestHelper.GetUserByIdAsync(txtById.Text);
+            txtResponse.Text = RestHelper.BeautifyJson(response.ToString());
+        }
+
+        private async void btnPost_Click(object sender, EventArgs e)
+        {
+            var response = await RestHelper.CreateUserAsync(txtName.Text, txtJob.Text);
+            txtResponse.Text = RestHelper.BeautifyJson(response.ToString());
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -11,19 +13,38 @@ namespace ApiRequsetFromWindowsApplication
     public static class RestHelper
     {
 
-        public static readonly string baseURL = "https://reqres.in/api/";
+        public static readonly string baseURL = "https://reqres.in/api";
 
-        public static async Task<string> GetAsync()
+
+        // GET all
+        public static async Task<string> GetUsersAsync()
         {
             var client = new HttpClient();
 
-            var response = await client.GetAsync(baseURL + "users");
+            var response = await client.GetAsync(baseURL + "/users");
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 var result = await response.Content.ReadAsStringAsync();
                 if (result != null)
                 {
-                    //new JsonSerializer().Deserialize<dynamic>(result);
+                    return result;
+                }
+            }
+
+            return string.Empty;
+        }
+
+        // GET by Id
+        public static async Task<string> GetUserByIdAsync(string id)
+        {
+            var client = new HttpClient();
+
+            var response = await client.GetAsync(baseURL + "/users/" + id);
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var result = await response.Content.ReadAsStringAsync();
+                if (result != null)
+                {
                     return result;
                 }
 
@@ -31,5 +52,46 @@ namespace ApiRequsetFromWindowsApplication
 
             return string.Empty;
         }
+
+        // POST 
+        public static async Task<string> CreateUserAsync(string name, string job)
+        {
+            var client = new HttpClient();
+
+            var inputData = new Dictionary<string, string>
+            {
+                { "name", name },
+                { "job", job }
+            };
+
+            var body = new FormUrlEncodedContent(inputData);
+
+            var response = await client.PostAsync(baseURL + "/users", body);
+            if (response.StatusCode == HttpStatusCode.Created)
+            {
+                var result = await response.Content.ReadAsStringAsync();
+                if (result != null)
+                {
+                    return result;
+                }
+            }
+
+            return string.Empty;
+        }
+
+        // PUT by Id
+
+
+        // DELETE by Id
+
+
+        // Common methods
+        #region
+        public static string BeautifyJson(string jsonStr)
+        {
+            JToken parseJson = JToken.Parse(jsonStr);
+            return parseJson.ToString(Formatting.Indented);
+        }
+        #endregion
     }
 }

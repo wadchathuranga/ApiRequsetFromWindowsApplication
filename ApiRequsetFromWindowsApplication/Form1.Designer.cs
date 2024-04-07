@@ -64,6 +64,7 @@
             this.btnGetById.TabIndex = 2;
             this.btnGetById.Text = "Get by Id";
             this.btnGetById.UseVisualStyleBackColor = true;
+            this.btnGetById.Click += new System.EventHandler(this.btnGetById_Click);
             // 
             // btnPost
             // 
@@ -73,19 +74,20 @@
             this.btnPost.TabIndex = 3;
             this.btnPost.Text = "POST";
             this.btnPost.UseVisualStyleBackColor = true;
+            this.btnPost.Click += new System.EventHandler(this.btnPost_Click);
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(348, 25);
+            this.txtName.Location = new System.Drawing.Point(325, 25);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 22);
+            this.txtName.Size = new System.Drawing.Size(123, 22);
             this.txtName.TabIndex = 4;
             // 
             // txtJob
             // 
-            this.txtJob.Location = new System.Drawing.Point(348, 60);
+            this.txtJob.Location = new System.Drawing.Point(325, 53);
             this.txtJob.Name = "txtJob";
-            this.txtJob.Size = new System.Drawing.Size(100, 22);
+            this.txtJob.Size = new System.Drawing.Size(123, 22);
             this.txtJob.TabIndex = 5;
             // 
             // btnPut
@@ -111,6 +113,7 @@
             this.txtResponse.Location = new System.Drawing.Point(60, 107);
             this.txtResponse.Multiline = true;
             this.txtResponse.Name = "txtResponse";
+            this.txtResponse.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtResponse.Size = new System.Drawing.Size(685, 319);
             this.txtResponse.TabIndex = 8;
             // 

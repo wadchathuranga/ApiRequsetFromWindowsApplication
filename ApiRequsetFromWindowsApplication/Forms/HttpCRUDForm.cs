@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ApiRequsetFromWindowsApplication
 {
-    public partial class Form1 : Form
+    public partial class HttpCRUDForm : Form
     {
-        public Form1()
+        public HttpCRUDForm()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace ApiRequsetFromWindowsApplication
 {
-    partial class Form1
+    partial class HttpCRUDForm
     {
         /// <summary>
         /// Required designer variable.

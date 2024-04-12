@@ -37,6 +37,8 @@
             this.btnPut = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.txtResponse = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGetAll
@@ -119,11 +121,22 @@
             this.txtResponse.Size = new System.Drawing.Size(685, 319);
             this.txtResponse.TabIndex = 8;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Location = new System.Drawing.Point(265, 124);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(255, 211);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
             // HttpCRUDForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtResponse);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnPut);
@@ -136,6 +149,7 @@
             this.Name = "HttpCRUDForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.HttpCRUDForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,6 +166,7 @@
         private System.Windows.Forms.Button btnPut;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TextBox txtResponse;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

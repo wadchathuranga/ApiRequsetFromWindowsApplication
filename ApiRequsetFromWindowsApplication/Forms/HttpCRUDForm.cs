@@ -78,7 +78,7 @@ namespace ApiRequsetFromWindowsApplication
                 // Update UI accordingly (you might want to use Invoke if accessing UI controls)
                 UpdateUI();
 
-                // Wait for some time before checking again (e.g., every 5 seconds)
+                // Wait for some time before checking again every 5 seconds
                 Thread.Sleep(5000);
             }
         }
@@ -95,12 +95,18 @@ namespace ApiRequsetFromWindowsApplication
             if (isConnected)
             {
                 this.Enabled = true;
-
+                pictureBox1.Visible = false;
             }
             else
             {
-                this.Enabled = false;
+                //this.Enabled = false;
 
+                // Set the Dock property of the PictureBox to Fill
+                pictureBox1.Dock = DockStyle.Fill;
+
+                // Load an image into the PictureBox (optional)
+                pictureBox1.Image = Image.FromFile("C:/Z - MY DATA/- My Projects/.Net/ApiRequsetFromWindowsApplication/ApiRequsetFromWindowsApplication/Assets/nonet.gif");
+                pictureBox1.Visible = true;
             }
         }
 

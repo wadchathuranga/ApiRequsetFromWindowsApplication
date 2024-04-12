@@ -17,8 +17,8 @@ namespace ApiRequsetFromWindowsApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new HttpCRUD());
-            Application.Run(new DataGridViewForm());
+            Application.Run(new HttpCRUDForm());
+            //Application.Run(new DataGridViewForm());
         }
     }
 }

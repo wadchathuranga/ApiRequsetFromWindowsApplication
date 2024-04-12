@@ -143,7 +143,7 @@ namespace ApiRequsetFromWindowsApplication.Forms
 
         private void cmbxPageSize_SelectedValueChanged(object sender, EventArgs e)
         {
-            pageSize = Int32.Parse(cmbxPageSize.SelectedItem.ToString());
+            pageSize = (int)Convert.ToInt64(cmbxPageSize.SelectedItem.ToString());
 
             DisplayData();
         }

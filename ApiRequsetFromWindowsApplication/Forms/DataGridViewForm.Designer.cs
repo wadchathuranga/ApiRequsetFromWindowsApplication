@@ -89,7 +89,7 @@
             "10",
             "15",
             "20"});
-            this.cmbxPageSize.Location = new System.Drawing.Point(215, 55);
+            this.cmbxPageSize.Location = new System.Drawing.Point(97, 54);
             this.cmbxPageSize.Name = "cmbxPageSize";
             this.cmbxPageSize.Size = new System.Drawing.Size(121, 24);
             this.cmbxPageSize.TabIndex = 4;
@@ -98,7 +98,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(158, 59);
+            this.label1.Location = new System.Drawing.Point(40, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 16);
             this.label1.TabIndex = 5;

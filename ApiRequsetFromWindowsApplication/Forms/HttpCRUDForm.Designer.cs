@@ -119,7 +119,7 @@
             this.txtResponse.Size = new System.Drawing.Size(685, 319);
             this.txtResponse.TabIndex = 8;
             // 
-            // Form1
+            // HttpCRUDForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -133,8 +133,9 @@
             this.Controls.Add(this.btnGetById);
             this.Controls.Add(this.txtById);
             this.Controls.Add(this.btnGetAll);
-            this.Name = "Form1";
+            this.Name = "HttpCRUDForm";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.HttpCRUDForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
